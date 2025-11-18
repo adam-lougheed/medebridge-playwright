@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Overview
 
-## Getting Started
+This repo contains:
 
-First, run the development server:
+- A Next.js application under `src/app` that provides a web UI for running and managing Playwright tests.
+- A .NET 8 Playwright test suite in `dotnet-tests/` with homepage smoke tests.
+
+Use the `BASE_URL` environment variable (defaults to `http://localhost:3000`) to point tests at any environment.
+
+## Test matrix
+
+| Suite | Test name | Location | Purpose |
+| --- | --- | --- | --- |
+| Playwright (.NET) | `HomepageLoadsDotNet` | `dotnet-tests/HomepageTests.cs` | Opens `/` and verifies the title matches `Create Next App | Test Dashboard | medEbridge` (case-insensitive). |
+
+## Running the app locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then visit [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Playwright (.NET) tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Requirements: .NET SDK 8+.
 
-## Learn More
+First-time setup installs the browsers referenced by the .NET runner:
 
-To learn more about Next.js, take a look at the following resources:
+```powershell
+dotnet build dotnet-tests
+.\dotnet-tests\bin\Debug\net8.0\playwright.ps1 install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run the tests with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```powershell
+dotnet test dotnet-tests
+```
 
-## Deploy on Vercel
+The C# suite currently includes `HomepageTests.cs`, which loads `/`, waits briefly, and ensures the title matches `Create Next App | Test Dashboard | medEbridge` (case-insensitive). Add additional tests by inheriting from `Microsoft.Playwright.NUnit.PageTest`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Optional env vars:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `BASE_URL` – defaults to `http://localhost:3000`.
+- `HEADED` – set to `1` to run browser in headed mode (visible). Defaults to headless.
+
+## Running tests via the web UI
+
+The Next.js app provides a web interface at [http://localhost:3000](http://localhost:3000) where you can:
+- View all available tests
+- Run tests with a click
+- Configure multiple environments (dev, staging, production, etc.)
+- View test results and history
+
+## Deployment
+
+Deploy the Next.js app to any platform you prefer (Vercel, Azure Static Web Apps, etc.). The Playwright tests can run in CI using `dotnet test dotnet-tests` after running `playwright.ps1 install` for the C# suite.
