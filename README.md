@@ -3,7 +3,29 @@
 This repo contains:
 
 - A Next.js application under `src/app` that provides a web UI for running and managing Playwright tests.
-- A .NET 8 Playwright test suite in `dotnet-tests/` with homepage smoke tests.
+- A scalable .NET 8 Playwright test suite in `dotnet-tests/` organized using Page Object Model (POM) pattern.
+
+## Project Structure
+
+The test project follows a scalable architecture with clear separation of concerns:
+
+```
+dotnet-tests/
+├── Features/              # Test feature classes (NUnit test classes)
+│   └── HomepageFeature.cs
+├── StepDefinitions/       # Reusable step definitions and test helpers
+│   ├── TestBase.cs       # Base class with common test functionality
+│   └── HomepageSteps.cs  # Homepage-specific step definitions
+├── POMElements/          # Page Object Model classes
+│   └── HomePage.cs       # Homepage page object
+└── Medebridge.PlaywrightTests.csproj
+```
+
+### Architecture Benefits
+
+- **Features/**: Contains test classes that define what to test
+- **StepDefinitions/**: Contains reusable test steps and helper methods for maintainability
+- **POMElements/**: Contains Page Object Model classes that encapsulate page interactions, making tests more maintainable and readable
 
 Use the `BASE_URL` environment variable (defaults to `http://localhost:3000`) to point tests at any environment.
 
@@ -11,7 +33,7 @@ Use the `BASE_URL` environment variable (defaults to `http://localhost:3000`) to
 
 | Suite | Test name | Location | Purpose |
 | --- | --- | --- | --- |
-| Playwright (.NET) | `HomepageLoadsDotNet` | `dotnet-tests/HomepageTests.cs` | Opens `/` and verifies the title matches `Create Next App | Test Dashboard | medEbridge` (case-insensitive). |
+| Playwright (.NET) | `HomepageLoadsDotNet` | `dotnet-tests/Features/HomepageFeature.cs` | Opens `/` and verifies the title matches `Create Next App | Test Dashboard | medEbridge` (case-insensitive). |
 
 ## Running the app locally
 
@@ -39,7 +61,39 @@ Run the tests with:
 dotnet test dotnet-tests
 ```
 
-The C# suite currently includes `HomepageTests.cs`, which loads `/`, waits briefly, and ensures the title matches `Create Next App | Test Dashboard | medEbridge` (case-insensitive). Add additional tests by inheriting from `Microsoft.Playwright.NUnit.PageTest`.
+### Adding New Tests
+
+To add a new test feature:
+
+1. **Create a Page Object** in `POMElements/`:
+   ```csharp
+   public class MyPage : IPageObject
+   {
+       // Page elements and interactions
+   }
+   ```
+
+2. **Create Step Definitions** in `StepDefinitions/`:
+   ```csharp
+   public class MyPageSteps : TestBase
+   {
+       // Reusable test steps
+   }
+   ```
+
+3. **Create Feature Test** in `Features/`:
+   ```csharp
+   public class MyFeature : MyPageSteps
+   {
+       [Test]
+       public async Task MyTest()
+       {
+           // Test implementation using steps
+       }
+   }
+   ```
+
+The test suite uses the Page Object Model pattern for maintainability and scalability.
 
 Optional env vars:
 
