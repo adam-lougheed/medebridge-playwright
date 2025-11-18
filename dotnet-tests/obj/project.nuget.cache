@@ -1,12 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "RVUCGklJomU=",
+  "dgSpecHash": "+94lxigs1lU=",
   "success": true,
   "projectFilePath": "C:\\playwright\\medebridge-playwright\\dotnet-tests\\Medebridge.PlaywrightTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adam.lougheed\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
-    "C:\\Users\\adam.lougheed\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\adam.lougheed\\.nuget\\packages\\cucumber.cucumberexpressions\\17.1.0\\cucumber.cucumberexpressions.17.1.0.nupkg.sha512",
+    "C:\\Users\\adam.lougheed\\.nuget\\packages\\cucumber.htmlformatter\\21.15.1\\cucumber.htmlformatter.21.15.1.nupkg.sha512",
+    "C:\\Users\\adam.lougheed\\.nuget\\packages\\cucumber.messages\\29.0.1\\cucumber.messages.29.0.1.nupkg.sha512",
+    "C:\\Users\\adam.lougheed\\.nuget\\packages\\gherkin\\35.0.0\\gherkin.35.0.0.nupkg.sha512",
+    "C:\\Users\\adam.lougheed\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\9.0.6\\microsoft.bcl.asyncinterfaces.9.0.6.nupkg.sha512",
     "C:\\Users\\adam.lougheed\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
+    "C:\\Users\\adam.lougheed\\.nuget\\packages\\microsoft.extensions.dependencymodel\\8.0.2\\microsoft.extensions.dependencymodel.8.0.2.nupkg.sha512",
     "C:\\Users\\adam.lougheed\\.nuget\\packages\\microsoft.net.test.sdk\\17.8.0\\microsoft.net.test.sdk.17.8.0.nupkg.sha512",
     "C:\\Users\\adam.lougheed\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\adam.lougheed\\.nuget\\packages\\microsoft.playwright\\1.56.0\\microsoft.playwright.1.56.0.nupkg.sha512",
@@ -20,11 +25,13 @@
     "C:\\Users\\adam.lougheed\\.nuget\\packages\\nunit\\3.14.0\\nunit.3.14.0.nupkg.sha512",
     "C:\\Users\\adam.lougheed\\.nuget\\packages\\nunit.analyzers\\3.9.0\\nunit.analyzers.3.9.0.nupkg.sha512",
     "C:\\Users\\adam.lougheed\\.nuget\\packages\\nunit3testadapter\\4.5.0\\nunit3testadapter.4.5.0.nupkg.sha512",
+    "C:\\Users\\adam.lougheed\\.nuget\\packages\\reqnroll\\3.2.1\\reqnroll.3.2.1.nupkg.sha512",
+    "C:\\Users\\adam.lougheed\\.nuget\\packages\\reqnroll.nunit\\3.2.1\\reqnroll.nunit.3.2.1.nupkg.sha512",
+    "C:\\Users\\adam.lougheed\\.nuget\\packages\\reqnroll.tools.msbuild.generation\\3.2.1\\reqnroll.tools.msbuild.generation.3.2.1.nupkg.sha512",
     "C:\\Users\\adam.lougheed\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\adam.lougheed\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
-    "C:\\Users\\adam.lougheed\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\adam.lougheed\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
-    "C:\\Users\\adam.lougheed\\.nuget\\packages\\system.text.json\\6.0.10\\system.text.json.6.0.10.nupkg.sha512"
+    "C:\\Users\\adam.lougheed\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512",
+    "C:\\Users\\adam.lougheed\\.nuget\\packages\\system.threading.channels\\9.0.6\\system.threading.channels.9.0.6.nupkg.sha512"
   ],
   "logs": []
 }

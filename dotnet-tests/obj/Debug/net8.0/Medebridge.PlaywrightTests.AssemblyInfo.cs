@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Medebridge.PlaywrightTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5ab3a921417fed202c6b6e167c6f99cba1cff05")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a9e44fe5910402bc98b28cc7b8ea3fbc30e4d501")]
 [assembly: System.Reflection.AssemblyProductAttribute("Medebridge.PlaywrightTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Medebridge.PlaywrightTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
