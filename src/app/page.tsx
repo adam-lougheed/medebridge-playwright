@@ -53,7 +53,7 @@ export default function Home() {
   const [tests, setTests] = useState<Test[]>([
     {
       id: 1,
-      name: 'homepage loads',
+      name: 'HomepageLoadsDotNet',
       description: 'Verifies that the homepage loads correctly',
       status: 'pending',
     },
@@ -205,7 +205,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Test Dashboard</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">medEbridge Playwright</h1>
         
         {/* Tabs */}
         <div className="border-b border-gray-200 dark:border-gray-700 mb-6">
