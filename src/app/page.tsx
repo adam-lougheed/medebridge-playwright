@@ -28,33 +28,43 @@ interface Environment {
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'tests' | 'results' | 'settings' | 'environments'>('tests');
   const headless = false; // Always run headed; browser window will open
-  const [darkMode, setDarkMode] = useState<boolean>(false);
-
-  // Initialize dark mode from localStorage
-  useEffect(() => {
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    setDarkMode(savedDarkMode);
-    if (savedDarkMode) {
-      document.documentElement.classList.add('dark');
+  
+  // Initialize dark mode from localStorage on client side (default to false/light mode)
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('darkMode');
+      return saved === 'true'; // Only true if explicitly 'true', otherwise false
     }
-  }, []);
+    return false; // Default to light mode
+  });
+
+  // Sync dark mode with DOM on mount and when it changes
+  useEffect(() => {
+    const htmlElement = document.documentElement;
+    if (darkMode) {
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   // Toggle dark mode
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
     localStorage.setItem('darkMode', String(newDarkMode));
+    const htmlElement = document.documentElement;
     if (newDarkMode) {
-      document.documentElement.classList.add('dark');
+      htmlElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      htmlElement.classList.remove('dark');
     }
   };
   const [tests, setTests] = useState<Test[]>([
     {
       id: 1,
-      name: 'HomepageLoadsDotNet',
-      description: 'Verifies that the homepage loads correctly',
+      name: 'HomepageLoadsWithCorrectTitle',
+      description: 'Verifies that the homepage loads correctly with expected title (Reqnroll BDD)',
       status: 'pending',
     },
   ]);

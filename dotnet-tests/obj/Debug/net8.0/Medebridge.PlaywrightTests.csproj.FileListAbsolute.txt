@@ -447,3 +447,13 @@ C:\playwright\medebridge-playwright\dotnet-tests\obj\Debug\net8.0\refint\Medebri
 C:\playwright\medebridge-playwright\dotnet-tests\obj\Debug\net8.0\Medebridge.PlaywrightTests.pdb
 C:\playwright\medebridge-playwright\dotnet-tests\obj\Debug\net8.0\Medebridge.PlaywrightTests.genruntimeconfig.cache
 C:\playwright\medebridge-playwright\dotnet-tests\obj\Debug\net8.0\ref\Medebridge.PlaywrightTests.dll
+C:\playwright\medebridge-playwright\dotnet-tests\bin\Debug\net8.0\Reqnroll.NUnit.ReqnrollPlugin.dll
+C:\playwright\medebridge-playwright\dotnet-tests\bin\Debug\net8.0\reqnroll.json
+C:\playwright\medebridge-playwright\dotnet-tests\bin\Debug\net8.0\CucumberExpressions.dll
+C:\playwright\medebridge-playwright\dotnet-tests\bin\Debug\net8.0\Cucumber.HtmlFormatter.dll
+C:\playwright\medebridge-playwright\dotnet-tests\bin\Debug\net8.0\Cucumber.Messages.dll
+C:\playwright\medebridge-playwright\dotnet-tests\bin\Debug\net8.0\Gherkin.dll
+C:\playwright\medebridge-playwright\dotnet-tests\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\playwright\medebridge-playwright\dotnet-tests\bin\Debug\net8.0\Reqnroll.Utils.dll
+C:\playwright\medebridge-playwright\dotnet-tests\bin\Debug\net8.0\Reqnroll.dll
+C:\playwright\medebridge-playwright\dotnet-tests\bin\Debug\net8.0\System.Threading.Channels.dll

@@ -1,11 +1,13 @@
 using Medebridge.PlaywrightTests.POMElements;
 using NUnit.Framework;
+using Reqnroll;
 
 namespace Medebridge.PlaywrightTests.StepDefinitions;
 
 /// <summary>
-/// Step definitions for homepage-related test operations
+/// Step definitions for homepage-related test operations using Reqnroll
 /// </summary>
+[Binding]
 public class HomepageSteps : TestBase
 {
     private HomePage? _homePage;
@@ -13,40 +15,47 @@ public class HomepageSteps : TestBase
     /// <summary>
     /// Initializes the homepage page object
     /// </summary>
-    protected HomePage GetHomePage()
+    private HomePage GetHomePage()
     {
+        // Ensure Playwright is initialized first
+        if (!PlaywrightContext.IsInitialized)
+        {
+            throw new InvalidOperationException("Playwright context must be initialized before accessing Page. Ensure [BeforeScenario] hook runs or call InitializeAsync() first.");
+        }
+        
         _homePage ??= new HomePage(Page);
         return _homePage;
     }
 
-    /// <summary>
-    /// Step: Navigate to the homepage
-    /// </summary>
-    public async Task NavigateToHomepageAsync()
+    [Given(@"I navigate to the homepage")]
+    public async Task GivenINavigateToTheHomepage()
     {
+        // Ensure Playwright is initialized (fallback if hook didn't run)
+        if (!PlaywrightContext.IsInitialized)
+        {
+            await PlaywrightContext.InitializeAsync();
+        }
+        
         var baseUrl = GetBaseUrl();
-        await GetHomePage().NavigateAsync(baseUrl);
+        var homePage = GetHomePage();
+        await homePage.NavigateAsync(baseUrl);
     }
 
-    /// <summary>
-    /// Step: Wait for page to load
-    /// </summary>
-    public async Task WaitForPageLoadAsync(int timeoutMs = 2000)
+    [When(@"the page loads")]
+    public async Task WhenThePageLoads()
     {
-        await GetHomePage().WaitForPageLoadAsync(timeoutMs);
+        await GetHomePage().WaitForPageLoadAsync(2000);
     }
 
-    /// <summary>
-    /// Step: Verify the homepage title is correct
-    /// </summary>
-    public async Task VerifyHomepageTitleAsync()
+    [Then(@"the page title should match the expected pattern")]
+    public async Task ThenThePageTitleShouldMatchTheExpectedPattern()
     {
         var isValid = await GetHomePage().VerifyTitleAsync();
         Assert.That(isValid, Is.True, "Homepage title does not match expected pattern");
     }
 
     /// <summary>
-    /// Step: Get the current page title
+    /// Helper method: Get the current page title
     /// </summary>
     public async Task<string> GetPageTitleAsync()
     {
