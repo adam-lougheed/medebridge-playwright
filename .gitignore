@@ -17,6 +17,10 @@
 /.next/
 /out/
 
+# dotnet test artifacts
+/dotnet-tests/bin/
+/dotnet-tests/obj/
+
 # production
 /build
 
